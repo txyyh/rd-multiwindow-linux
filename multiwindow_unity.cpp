@@ -1615,9 +1615,9 @@ extern "C" const char* get_info() {
     }
 
     if (unsupportedDE) {
-        info += "<color=red>未使用受支持桌面环境</color>\n";
+        info += "<color=red>未使用受支持图形环境</color>\n";
     } else if (waylandType != WaylandType::None) {
-        info += "<color=green>已使用受支持桌面环境</color>\n";
+        info += "<color=green>已使用受支持图形环境</color>\n";
     }
 
     if (forceDisabledWayland) {
