@@ -1604,28 +1604,28 @@ extern "C" NativeMonitors get_monitors() {
 }
 
 extern "C" const char* get_info() {
-    std::string info = "Changing will require restarting the level/game.";
-    info += "\n\n---- Linux Info ----\n";
+    std::string info = "选择窗口移动的方式：所有屏幕，当前屏幕，还是模拟移动。改变此设置后需要重启关卡生效。";
+    info += "\n\n---- Linux 系统信息 ----\n";
     if (waylandType == WaylandType::None) {
-        info += "Using X11\n";
+        info += "正在使用 X11\n";
     } else if (waylandType == WaylandType::KDE) {
-        info += "Using Wayland KDE\n";
+        info += "正在使用 Plasma(Wayland)\n";
     } else if (waylandType == WaylandType::Hyprland) {
-        info += "Using Wayland Hyprland\n";
+        info += "正在使用 Hyprland\n";
     }
 
     if (unsupportedDE) {
-        info += "<color=red>Using unsupported DE/WM.</color>\n";
+        info += "<color=red>未使用受支持桌面环境</color>\n";
     } else if (waylandType != WaylandType::None) {
-        info += "<color=green>You are using a supported DE/WM</color>\n";
+        info += "<color=green>已使用受支持桌面环境</color>\n";
     }
 
     if (forceDisabledWayland) {
-        info += "<color=blue>You have force disabled Wayland.</color>\n";
+        info += "<color=blue>已被强制禁用 Wayland</color>\n";
     }
 
     if (hyprlandError) {
-        info += "<color=red>Hyprland socket not found. Try launching the game outside of Steam.</color>\n";
+        info += "<color=red>未发现 Hyprland socket，请尝试在 Steam 之外启动游戏。</color>\n";
     }
 
     return createString(info.c_str());
